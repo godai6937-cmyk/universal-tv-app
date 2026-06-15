@@ -277,6 +277,31 @@ html_template = """<!DOCTYPE html>
             visibility: visible;
         }
         
+        #mobile-close-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 45px;
+            height: 45px;
+            background: rgba(30, 30, 30, 0.85);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10002;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        #mobile-close-btn:hover {
+            background: #ff4757;
+            border-color: #ff4757;
+        }
+
         /* Ad Container */
         #ad-container {
             position: absolute;
@@ -381,6 +406,7 @@ html_template = """<!DOCTYPE html>
     <div class="grid-wrapper" id="grid-wrapper"></div>
 
     <div id="video-container">
+        <div id="mobile-close-btn" onclick="closePlayer()" title="Close Player">✖</div>
         <div id="player-viewer-count" class="viewer-count">110014 Live Watching Worldwide</div>
         <div class="booster-container" title="Audio Booster">
             <span class="booster-icon" id="boostValue">🔊 100%</span>
@@ -893,10 +919,13 @@ html_template = """<!DOCTYPE html>
         let playerIdleTimer;
         function wakeUpControls() {
             const pvc = document.getElementById('player-viewer-count');
+            const mcb = document.getElementById('mobile-close-btn');
             pvc.style.opacity = '1';
+            mcb.style.opacity = '1';
             clearTimeout(playerIdleTimer);
             playerIdleTimer = setTimeout(() => {
                 pvc.style.opacity = '0';
+                mcb.style.opacity = '0';
             }, 3000);
         }
         
