@@ -1,0 +1,8 @@
+{
+    "password": "scrypt:32768:8:1$XnEePYMfYLc4i0KX$8a3c999e7625aa6732944a5bf8b407e7e05a3c4a4b1d38135e341d4426974937b3a04a7667f544d5ad31d49b7146638649fa4966214bfc03a76d7ac63df0eff6",
+    "ad_enabled": true,
+    "ad_image_url": "https://static.vecteezy.com/system/resources/thumbnails/064/934/071/small/blue-and-white-television-lower-third-design-free-png.png",
+    "ad_target_link": "",
+    "ad_auto_hide_seconds": 10,
+    "ad_start_delay_seconds": 0
+}
