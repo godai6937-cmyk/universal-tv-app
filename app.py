@@ -891,14 +891,18 @@ html_template = """<!DOCTYPE html>
         }
 
         let playerIdleTimer;
-        videoContainer.addEventListener('mousemove', () => {
+        function wakeUpControls() {
             const pvc = document.getElementById('player-viewer-count');
             pvc.style.opacity = '1';
             clearTimeout(playerIdleTimer);
             playerIdleTimer = setTimeout(() => {
                 pvc.style.opacity = '0';
             }, 3000);
-        });
+        }
+        
+        videoContainer.addEventListener('mousemove', wakeUpControls);
+        videoContainer.addEventListener('touchstart', wakeUpControls);
+        videoContainer.addEventListener('click', wakeUpControls);
         
         let viewerId = localStorage.getItem('tv_viewer_id');
         if (!viewerId) {
